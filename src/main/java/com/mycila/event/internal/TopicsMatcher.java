@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event.internal;
 
 import com.mycila.event.Topic;
@@ -25,7 +24,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import static com.mycila.event.internal.Ensure.*;
+import static com.mycila.event.internal.Ensure.notNull;
 
 public final class TopicsMatcher extends Topics implements Serializable {
 

@@ -4,103 +4,34 @@
 
     <parent>
         <groupId>com.mycila</groupId>
-        <artifactId>parent-pom</artifactId>
-        <version>4</version>
+        <artifactId>mycila-pom</artifactId>
+        <version>1</version>
+        <relativePath>../pom</relativePath>
     </parent>
 
     <groupId>com.mycila</groupId>
-    <artifactId>mycila-event</artifactId>
-    <version>4.3.ga-SNAPSHOT</version>
+    <artifactId>mycila-pubsub</artifactId>
+    <version>5.0.rc1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Mycila Event</name>
-    <description>Myclia Event dispatcher</description>
-    <url>http://code.mycila.com/</url>
+    <name>mycila-pubsub</name>
+    <url>http://mycila.github.io/pubsub</url>
     <inceptionYear>2010</inceptionYear>
 
-    <properties>
-        <jdk.version>1.6</jdk.version>
-    </properties>
-
     <scm>
-        <connection>scm:svn:https://mycila.googlecode.com/svn/mycila-event/trunk</connection>
-        <developerConnection>scm:svn:https://mycila.googlecode.com/svn/mycila-event/trunk</developerConnection>
-        <url>http://mycila.googlecode.com/svn/mycila-event/trunk</url>
+        <connection>scm:git:git@github.com:mycila/pubsub.git</connection>
+        <developerConnection>scm:git:git@github.com:mycila/pubsub.git</developerConnection>
+        <url>http://github.com/mycila/pubsub</url>
+        <tag>HEAD</tag>
     </scm>
+
+    <properties>
+        <osgi.private>com.mycila.event.internal</osgi.private>
+        <osgi.export>!com.mycila.event.internal*,com.mycila.event*;version="${project.version}";-noimport:=true</osgi.export>
+    </properties>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.mycila.maven-license-plugin</groupId>
-                <artifactId>maven-license-plugin</artifactId>
-                <configuration>
-                    <header>${basedir}/src/main/etc/header.txt</header>
-                    <failIfMissing>true</failIfMissing>
-                    <strictCheck>true</strictCheck>
-                    <properties>
-                        <owner>${project.organization.name}</owner>
-                        <year>${project.inceptionYear}</year>
-                        <email>mathieu.carbou@gmail.com</email>
-                    </properties>
-                    <excludes>
-                        <exclude>dependency-reduced-pom.xml</exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>manifest</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <instructions>
-                        <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
-                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Name>${project.name}</Bundle-Name>
-                        <Bundle-Description>${project.description}</Bundle-Description>
-                        <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
-                        <Bundle-DocURL>${project.url}</Bundle-DocURL>
-                        <Bundle-Copyright>Copyright (C) ${project.inceptionYear} ${project.organization.name}</Bundle-Copyright>
-                        <Private-Package>
-                            com.mycila.event.internal
-                        </Private-Package>
-                        <Export-Package>
-                            !com.mycila.event.internal*,
-                            com.mycila.event*;version="${project.version}";-noimport:=true
-                        </Export-Package>
-                        <Import-Package>
-                            !com.google.common*,
-                            !net.sf.cglib*,
-                            !org.objectweb.asm*,
-                            !org.aopalliance*,
-                            com.google.inject*;resolution:=optional,
-                            javax.inject*;resolution:=optional,
-                            *
-                        </Import-Package>
-                        <_versionpolicy>[${version;===;${@}},${version;+;${@}})</_versionpolicy>
-                        <_removeheaders>
-                            Built-By,Tool,Created-By,
-                            Include-Resource,Private-Package,
-                            Ignore-Package,Bnd-LastModified
-                        </_removeheaders>
-                    </instructions>
-                </configuration>
-            </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
@@ -108,52 +39,25 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-shade-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>standard</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <shadedArtifactAttached>false</shadedArtifactAttached>
-                            <createSourcesJar>true</createSourcesJar>
-                            <artifactSet>
-                                <includes>
-                                    <include>aopalliance:aopalliance</include>
-                                    <include>asm:asm-all</include>
-                                    <include>cglib:cglib</include>
-                                    <include>com.google.guava:guava</include>
-                                </includes>
-                            </artifactSet>
-                            <relocations>
-                                <relocation>
-                                    <pattern>net.sf.cglib</pattern>
-                                    <shadedPattern>com.mycila.event.internal.cglib</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.aopalliance</pattern>
-                                    <shadedPattern>com.mycila.event.internal.aopalliance</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.objectweb.asm</pattern>
-                                    <shadedPattern>com.mycila.event.internal.asm</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.google.common</pattern>
-                                    <shadedPattern>com.mycila.event.internal.guava</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
-        <!-- jarjar packages -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>14.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.code.findbugs</groupId>
+                    <artifactId>jsr305</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
@@ -170,28 +74,24 @@
             <artifactId>asm-all</artifactId>
             <version>3.2</version>
         </dependency>
+
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>r06</version>
-        </dependency>
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <!-- optional features -->
-        <dependency>
-            <groupId>com.mycila.com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>3.0-20100907</version>
+            <groupId>org.sonatype.sisu</groupId>
+            <artifactId>sisu-guice</artifactId>
+            <version>3.1.0</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.sonatype.sisu</groupId>
+                    <artifactId>sisu-guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!-- testing -->
+
         <dependency>
             <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <artifactId>junit-dep</artifactId>
+            <version>4.10</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

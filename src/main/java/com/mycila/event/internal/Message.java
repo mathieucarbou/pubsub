@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event.internal;
 
 import com.mycila.event.EventRequest;
@@ -29,7 +28,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static com.mycila.event.internal.Message.State.*;
+import static com.mycila.event.internal.Message.State.CANCELLED;
+import static com.mycila.event.internal.Message.State.DONE;
+import static com.mycila.event.internal.Message.State.ERROR;
+import static com.mycila.event.internal.Message.State.WAITING;
 
 /**
  * @author Mathieu Carbou (mathieu.carbou@gmail.com)

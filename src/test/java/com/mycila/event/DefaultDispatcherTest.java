@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event;
 
 import com.mycila.event.annotation.Reference;
@@ -29,8 +28,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.mycila.event.Topic.*;
-import static org.junit.Assert.*;
+import static com.mycila.event.Topic.match;
+import static com.mycila.event.Topic.only;
+import static com.mycila.event.Topic.topic;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * @author Mathieu Carbou (mathieu.carbou@gmail.com)

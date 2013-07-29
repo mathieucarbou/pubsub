@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event;
 
 import com.mycila.event.internal.TopicsMatcher;
@@ -21,8 +20,8 @@ import com.mycila.event.internal.TopicsMatcher;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import static com.mycila.event.Topic.*;
-import static com.mycila.event.internal.Ensure.*;
+import static com.mycila.event.Topic.topic;
+import static com.mycila.event.internal.Ensure.notNull;
 
 /**
  * @author Mathieu Carbou (mathieu.carbou@gmail.com)

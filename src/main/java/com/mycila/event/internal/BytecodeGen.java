@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event.internal;
 
-import com.google.common.base.Function;
-import com.google.common.collect.MapMaker;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Member;
@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Utility methods for runtime code generation and class loading. We use this stuff for {@link
@@ -79,16 +79,19 @@ final class BytecodeGen {
      * Weak cache of bridge class loaders that make the Guice implementation
      * classes visible to various code-generated proxies of client classes.
      */
-    private static final Map<ClassLoader, ClassLoader> CLASS_LOADER_CACHE = new MapMaker().weakKeys().weakValues().makeComputingMap(
-            new Function<ClassLoader, ClassLoader>() {
-                public ClassLoader apply(final ClassLoader typeClassLoader) {
-                    return AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() {
-                        public ClassLoader run() {
-                            return new BridgeClassLoader(typeClassLoader);
-                        }
-                    });
-                }
-            });
+    private static final LoadingCache<ClassLoader, ClassLoader> CLASS_LOADER_CACHE = CacheBuilder.newBuilder()
+        .weakKeys()
+        .weakValues()
+        .build(new CacheLoader<ClassLoader, ClassLoader>() {
+            @Override
+            public ClassLoader load(final ClassLoader key) throws Exception {
+                return AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() {
+                    public ClassLoader run() {
+                        return new BridgeClassLoader(key);
+                    }
+                });
+            }
+        });
 
     /**
      * Attempts to canonicalize null references to the system class loader.
@@ -122,7 +125,11 @@ final class BytecodeGen {
         if (Visibility.forType(type) == Visibility.PUBLIC) {
             if (delegate != SystemBridgeHolder.SYSTEM_BRIDGE.getParent()) {
                 // delegate guaranteed to be non-null here
-                return CLASS_LOADER_CACHE.get(delegate);
+                try {
+                    return CLASS_LOADER_CACHE.get(delegate);
+                } catch (ExecutionException e) {
+                    throw new RuntimeException(e.getMessage(), e);
+                }
             }
             // delegate may or may not be null here
             return SystemBridgeHolder.SYSTEM_BRIDGE;
@@ -191,8 +198,8 @@ final class BytecodeGen {
             }
 
             Class[] parameterTypes = member instanceof Constructor
-                    ? ((Constructor) member).getParameterTypes()
-                    : ((Method) member).getParameterTypes();
+                ? ((Constructor) member).getParameterTypes()
+                : ((Method) member).getParameterTypes();
             for (Class<?> type : parameterTypes) {
                 if (forType(type) == SAME_PACKAGE) {
                     return SAME_PACKAGE;
@@ -204,8 +211,8 @@ final class BytecodeGen {
 
         public static Visibility forType(Class<?> type) {
             return (type.getModifiers() & (Modifier.PROTECTED | Modifier.PUBLIC)) != 0
-                    ? PUBLIC
-                    : SAME_PACKAGE;
+                ? PUBLIC
+                : SAME_PACKAGE;
         }
 
         public abstract Visibility and(Visibility that);
@@ -227,7 +234,7 @@ final class BytecodeGen {
 
         @Override
         protected Class<?> loadClass(String name, boolean resolve)
-                throws ClassNotFoundException {
+            throws ClassNotFoundException {
 
             if (name.startsWith("sun.reflect")) {
                 // these reflection classes must be loaded from bootstrap class loader
@@ -256,7 +263,7 @@ final class BytecodeGen {
         // make the classic delegating loadClass method visible
 
         Class<?> classicLoadClass(String name, boolean resolve)
-                throws ClassNotFoundException {
+            throws ClassNotFoundException {
             return super.loadClass(name, resolve);
         }
     }

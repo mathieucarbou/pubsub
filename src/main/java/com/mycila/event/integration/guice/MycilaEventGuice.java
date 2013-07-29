@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event.integration.guice;
 
 import com.google.inject.AbstractModule;
@@ -35,10 +34,13 @@ import com.mycila.event.annotation.Subscribe;
 
 import javax.inject.Singleton;
 
-import static com.google.common.base.Predicates.*;
-import static com.google.common.collect.Iterables.*;
+import static com.google.common.base.Predicates.or;
+import static com.google.common.collect.Iterables.filter;
+import static com.google.common.collect.Iterables.isEmpty;
 import static com.google.inject.matcher.Matchers.any;
-import static com.mycila.event.internal.Reflect.*;
+import static com.mycila.event.internal.Reflect.annotatedBy;
+import static com.mycila.event.internal.Reflect.findMethods;
+import static com.mycila.event.internal.Reflect.getTargetClass;
 
 /**
  * @author Mathieu Carbou (mathieu.carbou@gmail.com)

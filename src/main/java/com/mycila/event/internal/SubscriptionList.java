@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event.internal;
 
 import com.google.common.base.Function;
@@ -24,7 +23,8 @@ import com.mycila.event.Subscription;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static com.google.common.collect.Iterators.*;
+import static com.google.common.collect.Iterators.filter;
+import static com.google.common.collect.Iterators.transform;
 
 /**
  * @author Mathieu Carbou (mathieu.carbou@gmail.com)

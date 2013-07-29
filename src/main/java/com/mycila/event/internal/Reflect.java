@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010 Mycila <mathieu.carbou@gmail.com>
+ * Copyright (C) 2010 Mycila (mathieu.carbou@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.mycila.event.internal;
 
 import com.google.common.base.Function;
@@ -31,8 +30,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.google.common.collect.Iterables.*;
-import static java.util.Arrays.*;
+import static com.google.common.collect.Iterables.concat;
+import static com.google.common.collect.Iterables.filter;
+import static com.google.common.collect.Iterables.transform;
+import static java.util.Arrays.asList;
 
 /**
  * @author Mathieu Carbou (mathieu.carbou@gmail.com)
