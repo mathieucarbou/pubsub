@@ -11,7 +11,7 @@
 
     <groupId>com.mycila</groupId>
     <artifactId>mycila-pubsub</artifactId>
-    <version>5.0.rc1-SNAPSHOT</version>
+    <version>5.0.rc1</version>
     <packaging>jar</packaging>
 
     <name>mycila-pubsub</name>
@@ -22,7 +22,7 @@
         <connection>scm:git:git@github.com:mycila/pubsub.git</connection>
         <developerConnection>scm:git:git@github.com:mycila/pubsub.git</developerConnection>
         <url>http://github.com/mycila/pubsub</url>
-        <tag>HEAD</tag>
+        <tag>mycila-pubsub-5.0.rc1</tag>
     </scm>
 
     <properties>
