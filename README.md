@@ -34,7 +34,7 @@
 
 # Mycila PubSub #
 
-Mycila Event is a new powerful event framework for in-memory event management. It has a lot of features similar to [https://eventbus.dev.java.net/ EventBus] but is better written and uses Java Concurrency features to provide you with:
+Mycila Event is a new powerful event framework for in-memory event management. It has a lot of features similar to [EventBus](https://eventbus.dev.java.net/) but is better written and uses Java Concurrency features to provide you with:
 
  * Asynchronous event dispatching
  * Multicasting events
