@@ -50,11 +50,11 @@ __Project Status:__
 
 ## Maven Repository ##
 
- - __Releases__ 
+__Releases__
 
 Available in Maven Central Repository: http://repo1.maven.org/maven2/com/mycila/pubsub/
 
- - __Snapshots__
+__Snapshots__
  
 Available in OSS Repository:  https://oss.sonatype.org/content/repositories/snapshots/com/mycila/pubsub/
 
@@ -65,6 +65,10 @@ __Maven dependency__
         <artifactId>mycila-pubsub</artifactId>
         <version>X.Y.ga</version>
     </dependency>
+
+__Maven sites__
+
+ - [5.0.ga](http://mycila.github.io/pubsub/reports/5.0.ga/index.html)
 
 ## Documentation ##
 
