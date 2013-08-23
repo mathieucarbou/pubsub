@@ -542,6 +542,4 @@ When configuring Guice, simply put MycileEventModule like this:
 
 All the created instances by Guice will automatically discover MycilaEvent annotations and subscribing methods will be registered and publishers will be injected.
 
-
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/25803a0aff184f73d36916c178ef1f2c "githalytics.com")](http://githalytics.com/mycila/pubsub)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/caad3334753cab502059a0ff8483e382 "githalytics.com")](http://githalytics.com/mycila/pubsub)
