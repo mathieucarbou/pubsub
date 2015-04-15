@@ -1,37 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta charset="UTF-8">
     <title>Mycila PubSub by mycila</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <section class="page-header">
+      <h1 class="project-name">Mycila PubSub</h1>
+      <h2 class="project-tagline">EventBus system for publish and subscribe to events within an application</h2>
+      <a href="https://github.com/mycila/pubsub" class="btn">View on GitHub</a>
+      <a href="https://github.com/mycila/pubsub/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mycila/pubsub/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <header>
-          <h1>Mycila PubSub</h1>
-          <h2>EventBus system for publish and subscribe to events within an application</h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/mycila/pubsub/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/mycila/pubsub/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/mycila/pubsub" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <p><strong>Table of Contents</strong></p>
+    <section class="main-content">
+      <p><strong>Table of Contents</strong></p>
 
 <ul>
 <li>
@@ -100,8 +88,10 @@
 </li>
 </ul>
 </li>
-</ul><h1>
-<a name="mycila-pubsub" class="anchor" href="#mycila-pubsub"><span class="octicon octicon-link"></span></a>Mycila PubSub</h1>
+</ul>
+
+<h1>
+<a id="mycila-pubsub" class="anchor" href="#mycila-pubsub" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mycila PubSub</h1>
 
 <p>Mycila Event is a new powerful event framework for in-memory event management. It has a lot of features similar to <a href="https://eventbus.dev.java.net/">EventBus</a> but is better written and uses Java Concurrency features to provide you with:</p>
 
@@ -111,7 +101,9 @@
 <li>Topic matchers: enable a subscriber (and a vetoers) to subscribe to many topics</li>
 <li>Annotation support: you can annotate your methods to decouple your code from Mycila Event and subscribe, publish and veto</li>
 <li>Memory management through hard and weak references</li>
-</ul><p><strong>Project Status:</strong></p>
+</ul>
+
+<p><strong>Project Status:</strong></p>
 
 <ul>
 <li>
@@ -123,8 +115,10 @@
 <li>
 <strong>Issues:</strong> <a href="https://github.com/mycila/pubsub/issues">https://github.com/mycila/pubsub/issues</a>
 </li>
-</ul><h2>
-<a name="maven-repository" class="anchor" href="#maven-repository"><span class="octicon octicon-link"></span></a>Maven Repository</h2>
+</ul>
+
+<h2>
+<a id="maven-repository" class="anchor" href="#maven-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maven Repository</h2>
 
 <p><strong>Releases</strong></p>
 
@@ -147,13 +141,15 @@
 
 <ul>
 <li><a href="http://mycila.github.io/pubsub/reports/5.0.ga/index.html">5.0.ga</a></li>
-</ul><h2>
-<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+</ul>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <p>Mycila Event is a new powerful event framework for in-memory event management. It has a lot of features similar to <a href="https://eventbus.dev.java.net/">EventBus</a> but is better designed, uses Java Concurrency features and has a lot of more event features than EventBus, which are really useful when you work with a complex system driven by event messaging.</p>
 
 <h3>
-<a name="sample" class="anchor" href="#sample"><span class="octicon octicon-link"></span></a>Sample</h3>
+<a id="sample" class="anchor" href="#sample" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample</h3>
 
 <pre><code>import static com.mycila.event.api.topic.Topics.*;
 
@@ -175,10 +171,10 @@ dispatcher.publish(topic("app/events/swing/button"), "Hello !");
 <p>When you subscribe, you need to give to which topic to subscribe and for which event type.</p>
 
 <h3>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
 
 <h4>
-<a name="subscribing" class="anchor" href="#subscribing"><span class="octicon octicon-link"></span></a>Subscribing</h4>
+<a id="subscribing" class="anchor" href="#subscribing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subscribing</h4>
 
 <p>Subscribing is done with the Dispatcher.subscribe method, which take the topic to subscribe to, the event type and an instance of <code>Subscriber&lt;T&gt;</code>, where T is the event type. The method receives an Event object, containing the timestamp (in nanoseconds) and the source.</p>
 
@@ -192,7 +188,7 @@ dispatcher.publish(topic("app/events/swing/button"), "Hello !");
 </code></pre>
 
 <h4>
-<a name="publishing" class="anchor" href="#publishing"><span class="octicon octicon-link"></span></a>Publishing</h4>
+<a id="publishing" class="anchor" href="#publishing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publishing</h4>
 
 <p>Publishing is done by simply sending to a topic an event object.</p>
 
@@ -200,7 +196,7 @@ dispatcher.publish(topic("app/events/swing/button"), "Hello !");
 </code></pre>
 
 <h4>
-<a name="synchronous-requests" class="anchor" href="#synchronous-requests"><span class="octicon octicon-link"></span></a>Synchronous requests</h4>
+<a id="synchronous-requests" class="anchor" href="#synchronous-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronous requests</h4>
 
 <p>An event system is asynchronous by default, but you sometimes need to wait for an answer before proceeding. This is the request/response pattern that everyone know. You can create a request and wait for its response (or wait with a timeout). The request is created through <code>Messages.createRequest</code>, where you can pass request parameters. The you call <code>MessageRequest.getResponse()</code> to obtain the response.</p>
 
@@ -210,7 +206,7 @@ int sum = adddRequest.getResponse(1, TimeUnit.SECOND);
 </code></pre>
 
 <h4>
-<a name="asynchronous-requests" class="anchor" href="#asynchronous-requests"><span class="octicon octicon-link"></span></a>Asynchronous requests</h4>
+<a id="asynchronous-requests" class="anchor" href="#asynchronous-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous requests</h4>
 
 <p>You can also request in asynchronous mode by adding listeners, which will be triggered when the response will be received;</p>
 
@@ -229,7 +225,7 @@ dispatcher.publish(topic("system/add"), adddRequest);
 </code></pre>
 
 <h4>
-<a name="request-answers" class="anchor" href="#request-answers"><span class="octicon octicon-link"></span></a>Request answers</h4>
+<a id="request-answers" class="anchor" href="#request-answers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request answers</h4>
 
 <p>To be able to respond to an answer on a topic, you simply have to subscribe, with the specific event type <code>MessageResponse</code>:</p>
 
@@ -250,22 +246,22 @@ dispatcher.publish(topic("system/add"), adddRequest);
 </code></pre>
 
 <h3>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h3>
 
 <h4>
-<a name="topics-and-event-types" class="anchor" href="#topics-and-event-types"><span class="octicon octicon-link"></span></a>Topics and Event types</h4>
+<a id="topics-and-event-types" class="anchor" href="#topics-and-event-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topics and Event types</h4>
 
 <p>When you subscribe, you subscribe in a Topic for a given event type. Event type subclasses are allowed to be received by a subscriber accepting its super-class. In example, if you subscribe to <code>Topic.topic("buttons/ok")</code> with event type <code>ActionListener.class</code>, you can publish any implementation of <code>ActionListener</code> and it will be received by subscribers accepting the type (and sub-types) <code>ActionListener</code>.</p>
 
 <h4>
-<a name="in-memory-event-system" class="anchor" href="#in-memory-event-system"><span class="octicon octicon-link"></span></a>In-Memory event system</h4>
+<a id="in-memory-event-system" class="anchor" href="#in-memory-event-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>In-Memory event system</h4>
 
 <p>Mycila Event is not a JMS solution ! Like EventBus, Mycila Event resolves intra-process communication. In example, it can be used in a Swing GUI or in a complex modular framework to handle communication between plugins.</p>
 
 <p>Thus, <strong>Mycila Event must be fast, thread-safe and scalable.</strong></p>
 
 <h4>
-<a name="memory-management" class="anchor" href="#memory-management"><span class="octicon octicon-link"></span></a>Memory management</h4>
+<a id="memory-management" class="anchor" href="#memory-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memory management</h4>
 
 <p>Like EventBus, Mycila Event supports <em>hard and weak subscriptions</em>. A hard subscription will always remain and must be unregistered if not needed anymore. A weak subscription will be automatically removed when the subscriber is no longer in use.</p>
 
@@ -299,7 +295,7 @@ dispatcher.subscribe(matcher, String.class, pluginLoadedByAnotherSystem);
 <p><code>@Reference</code> can also be put on methods, when used with annotations.</p>
 
 <h4>
-<a name="exception-handling" class="anchor" href="#exception-handling"><span class="octicon octicon-link"></span></a>Exception handling</h4>
+<a id="exception-handling" class="anchor" href="#exception-handling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exception handling</h4>
 
 <p>By default, if a subscriber launches an exception, the exception is rethrown immediately, in the thread firering the event. You can change this behavior by providing your own <code>ErrorHandler</code>, or by using existing one:</p>
 
@@ -308,13 +304,15 @@ dispatcher.subscribe(matcher, String.class, pluginLoadedByAnotherSystem);
 <code>ErrorHandlers.ignoreErrors()</code>: ignore all exceptions thrown by subscribers</li>
 <li>
 <code>ErrorHandlers.rethrow()</code>: the default behavior.</li>
-</ul><p>To create an Dispatcher with the appropriate event handler, you just have to set the <code>ErrorHandler</code> instance when creating it:</p>
+</ul>
+
+<p>To create an Dispatcher with the appropriate event handler, you just have to set the <code>ErrorHandler</code> instance when creating it:</p>
 
 <pre><code>Dispatcher dispatcher = Dispatchers.synchronousSafe(ErrorHandlers.ignoreErrors());
 </code></pre>
 
 <h4>
-<a name="topic-matchers" class="anchor" href="#topic-matchers"><span class="octicon octicon-link"></span></a>Topic Matchers</h4>
+<a id="topic-matchers" class="anchor" href="#topic-matchers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Topic Matchers</h4>
 
 <p>When you register a subscriber, you need to pass the type of event you want to receive and a matcher to math topics you want to listen to. TopicMatcher can be created with the <code>Topics</code> class. You can compose matchers.</p>
 
@@ -333,7 +331,9 @@ dispatcher.subscribe(matcher, String.class, pluginLoadedByAnotherSystem);
 <code>matcher.and(matcher)</code>: any matcher can be composed with another matcher with an <em>and</em>. In this case, all matchers must match given topic event for the subscriber to receive it. This is quite an uncommon case.</li>
 <li>
 <code>matcher.or(matcher)</code>: any matcher can be composed with another matcher with an <em>or</em>. In this case, the subscriber will receive events matching the two matchers. This is a common case where you would like to receive in one subscriber the same events from different topics.</li>
-</ul><p>In example, to set a catch-all subscriber, you could do:</p>
+</ul>
+
+<p>In example, to set a catch-all subscriber, you could do:</p>
 
 <pre><code>dispatcher.subscribe(Topics.any(), Object.class, new Subscriber&lt;Object&gt;() {
     public void onEvent(Event&lt;Object&gt; event) throws Exception {
@@ -343,12 +343,12 @@ dispatcher.subscribe(matcher, String.class, pluginLoadedByAnotherSystem);
 </code></pre>
 
 <h4>
-<a name="annotation-support" class="anchor" href="#annotation-support"><span class="octicon octicon-link"></span></a>Annotation support</h4>
+<a id="annotation-support" class="anchor" href="#annotation-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Annotation support</h4>
 
 <p>Mycila Event provides annotations to create publishers and subscribers decoupled from the Dispatcher service.</p>
 
 <h5>
-<a name="subscribers" class="anchor" href="#subscribers"><span class="octicon octicon-link"></span></a>Subscribers</h5>
+<a id="subscribers" class="anchor" href="#subscribers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subscribers</h5>
 
 <p>You can annotate any method in your class to receive events with the <code>@Subscribe</code> annotation. It takes in arguments the list of topics (an Ant expression matching topics) to listen to and the type of event.</p>
 
@@ -377,7 +377,7 @@ processor.process(c1);;
 </code></pre>
 
 <h5>
-<a name="publisher" class="anchor" href="#publisher"><span class="octicon octicon-link"></span></a>Publisher</h5>
+<a id="publisher" class="anchor" href="#publisher" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publisher</h5>
 
 <p>Publishers can be created using the annotation <code>@Publish</code>. You can completely decouple your code by creating interface (or abstract classes) that will be automatically generated thanks to annotations.</p>
 
@@ -420,10 +420,10 @@ c.send("Hello for a1", 4);
 myCustomPublisher2.send(1, "each", "string", "will", "be", "an", "event")
 </code></pre>
 
-<p><strong>Note</strong>: you can then create abstract classes which act sa event managers: abstract methods annotated by <a href="https://github.com/Publish" class="user-mention">@Publish</a> will be generated and concrete methods annotated by @Subscribe will receive events.</p>
+<p><strong>Note</strong>: you can then create abstract classes which act sa event managers: abstract methods annotated by <a href="https://github.com/Publish" class="user-mention">@Publish</a> will be generated and concrete methods annotated by <a href="https://github.com/Subscribe" class="user-mention">@Subscribe</a> will receive events.</p>
 
 <h5>
-<a name="requests" class="anchor" href="#requests"><span class="octicon octicon-link"></span></a>Requests</h5>
+<a id="requests" class="anchor" href="#requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requests</h5>
 
 <p>Requesting methods acts the same as publishers. They differ in the annotation, which provides a way to timeout and wait for the response to come back. In example, suppose you have an additioner plugin exposing its computation method to the topic <code>system/add</code>. You can create a subscriber like this:</p>
 
@@ -440,7 +440,7 @@ assertEquals(15, req.addNumbers(1,2,3,4,5));
 <p>Given the nature of a method call, it is obvious that the call is synchronous and will wait either indefinitely for a response or only with the given time.</p>
 
 <h5>
-<a name="answering-requests" class="anchor" href="#answering-requests"><span class="octicon octicon-link"></span></a>Answering requests</h5>
+<a id="answering-requests" class="anchor" href="#answering-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Answering requests</h5>
 
 <p>There is two way for answering requests: as we seen, we have to register a simple subscriber. It can be done like this:</p>
 
@@ -483,19 +483,21 @@ processor.process(du);
 <p>The method output (or the exception) will then be used as the reply if an request is made to the topic <code>system/du</code>.</p>
 
 <h4>
-<a name="event-dispatching-strategies" class="anchor" href="#event-dispatching-strategies"><span class="octicon octicon-link"></span></a>Event dispatching strategies</h4>
+<a id="event-dispatching-strategies" class="anchor" href="#event-dispatching-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event dispatching strategies</h4>
 
 <p>There are several strategies regarding about how you want the order of events and the order of listeners be respected and whether or not you have multiple threads publishing events.</p>
 
 <h5>
-<a name="synchronous-safe-dispatching" class="anchor" href="#synchronous-safe-dispatching"><span class="octicon octicon-link"></span></a>Synchronous Safe Dispatching</h5>
+<a id="synchronous-safe-dispatching" class="anchor" href="#synchronous-safe-dispatching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronous Safe Dispatching</h5>
 
 <ul>
 <li>Listeners are called in the order they subscribed</li>
 <li>Events are published <strong>one after one</strong>
 </li>
 <li>Only one thread can publish at a time</li>
-</ul><p>This strategy guarantees the order of listeners called and that only one thread will hit the listeners at a time. Thus, your listeners don't need to be thread-safe. The publish method thus block until the previous publishing is finished.</p>
+</ul>
+
+<p>This strategy guarantees the order of listeners called and that only one thread will hit the listeners at a time. Thus, your listeners don't need to be thread-safe. The publish method thus block until the previous publishing is finished.</p>
 
 <p>This behavior allows you to have stateful non thread-safe subscribers. When multiple threads are publishing, this strategy is slower.</p>
 
@@ -503,13 +505,15 @@ processor.process(du);
 </code></pre>
 
 <h5>
-<a name="synchronous-unsafe-dispatching" class="anchor" href="#synchronous-unsafe-dispatching"><span class="octicon octicon-link"></span></a>Synchronous Unsafe Dispatching</h5>
+<a id="synchronous-unsafe-dispatching" class="anchor" href="#synchronous-unsafe-dispatching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronous Unsafe Dispatching</h5>
 
 <ul>
 <li>Listeners are called in the order they subscribed</li>
 <li>Events are published immediately</li>
 <li>Several threads can publish at a time</li>
-</ul><p>This strategy guarantees the order of listeners called. The publish method only block for the current thread, meaning that a thread can be publishing while another thread also starting publishing an event. Thus, your subscribers can be hit at the same time by two or more threads.</p>
+</ul>
+
+<p>This strategy guarantees the order of listeners called. The publish method only block for the current thread, meaning that a thread can be publishing while another thread also starting publishing an event. Thus, your subscribers can be hit at the same time by two or more threads.</p>
 
 <p>Your subscribers need to be stateless and thread-safe. Multiple threads can publish at the same time.</p>
 
@@ -517,7 +521,7 @@ processor.process(du);
 </code></pre>
 
 <h5>
-<a name="asynchronous-safe-dispatching" class="anchor" href="#asynchronous-safe-dispatching"><span class="octicon octicon-link"></span></a>Asynchronous Safe Dispatching</h5>
+<a id="asynchronous-safe-dispatching" class="anchor" href="#asynchronous-safe-dispatching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Safe Dispatching</h5>
 
 <ul>
 <li>Listeners are called in the order they subscribed</li>
@@ -525,7 +529,9 @@ processor.process(du);
 <li>Many threads can enqueue an event at one time</li>
 <li>One background thread is responsible to dequeue and fire events</li>
 <li>A queue is used to enqueue events before they are processed.</li>
-</ul><p>This strategy guarantees the order of listeners called and the order of published events. The publish method <em>does not block</em> and the publisher thread immediately returns. The event is queued and wait for its turn to be processed by the background thread.</p>
+</ul>
+
+<p>This strategy guarantees the order of listeners called and the order of published events. The publish method <em>does not block</em> and the publisher thread immediately returns. The event is queued and wait for its turn to be processed by the background thread.</p>
 
 <p>This strategy is useful when your publishers must execute as fast as possible, but be careful to also have fast subscribers to not fill the queue. This behavior allows you to have stateful non thread-safe subscribers since only one thread will dequeue and fire events.</p>
 
@@ -535,14 +541,16 @@ processor.process(du);
 </code></pre>
 
 <h5>
-<a name="asynchronous-unsafe-dispatching" class="anchor" href="#asynchronous-unsafe-dispatching"><span class="octicon octicon-link"></span></a>Asynchronous Unsafe Dispatching</h5>
+<a id="asynchronous-unsafe-dispatching" class="anchor" href="#asynchronous-unsafe-dispatching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous Unsafe Dispatching</h5>
 
 <ul>
 <li>Listeners are called in the order they subscribed</li>
 <li>Several events (so listeners) are processed at the same time</li>
 <li>Many threads can publish an event at one time</li>
 <li>Several background threads are responsible for firing events</li>
-</ul><p>This strategy guarantees the order of listeners called, but not the order of event. Basically, each call to publish will return immediately. All events in the queue are handled by a thread pool.</p>
+</ul>
+
+<p>This strategy guarantees the order of listeners called, but not the order of event. Basically, each call to publish will return immediately. All events in the queue are handled by a thread pool.</p>
 
 <p>This strategy is useful when your publishers must execute as fast as possible, and event publishing needs to be processed quickly, but by respecting listener order. This dispatcher can be seen as a concurrent event dispatcher, respecting listener order.</p>
 
@@ -554,14 +562,16 @@ processor.process(du);
 </code></pre>
 
 <h5>
-<a name="broadcast-ordered-dispatching" class="anchor" href="#broadcast-ordered-dispatching"><span class="octicon octicon-link"></span></a>Broadcast Ordered Dispatching</h5>
+<a id="broadcast-ordered-dispatching" class="anchor" href="#broadcast-ordered-dispatching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Broadcast Ordered Dispatching</h5>
 
 <ul>
 <li>Listeners are called unordered</li>
 <li>Events are published one after one</li>
 <li>Many threads can enqueue an event at one time</li>
 <li>A thread-pool is used to send each event to each subscriber</li>
-</ul><p>This strategy guarantees the order of events but calls listeners unordered. The goal of a broadcasting is to reach as fast as possible each listeners in the smallest amount of time. A thread-pool is used to handle subscriber's execution.</p>
+</ul>
+
+<p>This strategy guarantees the order of events but calls listeners unordered. The goal of a broadcasting is to reach as fast as possible each listeners in the smallest amount of time. A thread-pool is used to handle subscriber's execution.</p>
 
 <p>This type of dispatching is really useful when you don't care about ordering and want to publish fast and want your subscribers to be called as fast as possible.</p>
 
@@ -573,14 +583,16 @@ processor.process(du);
 </code></pre>
 
 <h5>
-<a name="broadcast-unordered-dispatching" class="anchor" href="#broadcast-unordered-dispatching"><span class="octicon octicon-link"></span></a>Broadcast Unordered Dispatching</h5>
+<a id="broadcast-unordered-dispatching" class="anchor" href="#broadcast-unordered-dispatching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Broadcast Unordered Dispatching</h5>
 
 <ul>
 <li>Listeners are called unordered</li>
 <li>Several events are published at the same time</li>
 <li>Many threads can enqueue an event at one time</li>
 <li>A thread-pool is used to send each event to each subscriber</li>
-</ul><p>This type of dispatching is really useful when you don't care about any ordering. Since the publish method does not block, any thread will be able to publish events really fast and a thread-pool is used to process them all, unordered.</p>
+</ul>
+
+<p>This type of dispatching is really useful when you don't care about any ordering. Since the publish method does not block, any thread will be able to publish events really fast and a thread-pool is used to process them all, unordered.</p>
 
 <p>Thus, subscribers taking a long time to execute don't affect publishing of other events to other subscribers.</p>
 
@@ -588,7 +600,7 @@ processor.process(du);
 </code></pre>
 
 <h5>
-<a name="custom-strategy" class="anchor" href="#custom-strategy"><span class="octicon octicon-link"></span></a>Custom strategy</h5>
+<a id="custom-strategy" class="anchor" href="#custom-strategy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom strategy</h5>
 
 <p>You can easily implelement and control your own dispatching strategy: simply look at the source code of <code>Dispatchers</code> to have more example. You can create a custom dispacther like this:</p>
 
@@ -602,11 +614,13 @@ processor.process(du);
 <code>Executors.immediate()</code>: execute the runnable immediately</li>
 <li>
 <code>Executors.blocking()</code>: idem, but blocks so that only one thread can execute a subscriber at a time</li>
-</ul><h4>
-<a name="integration" class="anchor" href="#integration"><span class="octicon octicon-link"></span></a>Integration</h4>
+</ul>
+
+<h4>
+<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integration</h4>
 
 <h5>
-<a name="google-guice" class="anchor" href="#google-guice"><span class="octicon octicon-link"></span></a>Google Guice</h5>
+<a id="google-guice" class="anchor" href="#google-guice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google Guice</h5>
 
 <p><a href="http://code.google.com/p/google-guice/">http://code.google.com/p/google-guice/</a></p>
 
@@ -690,15 +704,17 @@ injector.getInstance(MyCustomPublisher3.class).send(1, Arrays.asList("A", "cut",
 
 <p>All the created instances by Guice will automatically discover MycilaEvent annotations and subscribing methods will be registered and publishers will be injected.</p>
 
-<p><a href="http://githalytics.com/mycila/pubsub"><img src="https://cruel-carlota.pagodabox.com/25803a0aff184f73d36916c178ef1f2c" alt="githalytics.com alpha" title="githalytics.com"></a></p>
-        </section>
+<p><a href="http://githalytics.com/mycila/pubsub"><img src="https://cruel-carlota.pagodabox.com/caad3334753cab502059a0ff8483e382" alt="githalytics.com alpha" title="githalytics.com"></a></p>
 
-        <footer>
-          Mycila PubSub is maintained by <a href="https://github.com/mycila">mycila</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mycila/pubsub">Mycila PubSub</a> is maintained by <a href="https://github.com/mycila">mycila</a>.</span>
 
-                  <script type="text/javascript">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -709,7 +725,6 @@ injector.getInstance(MyCustomPublisher3.class).send(1, Arrays.asList("A", "cut",
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
+
